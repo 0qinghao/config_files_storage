@@ -1,1 +1,2 @@
 Hints.characters = 'hklyuiopnmqwertzxcvbasdgjf'; // for double hands
+settings.hintAlign= "left";
