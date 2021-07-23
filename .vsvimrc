@@ -1,0 +1,90 @@
+" vim 相关配置
+" easymotion 配置
+"VsVim and ViEmu are disabled until PeasyMotion finishes
+"Whole viewport jump-to-word beginning mode:
+nnoremap <Space><Space>w gS:vsc Tools.InvokePeasyMotion<CR>
+nnoremap <Space><Space>b gS:vsc Tools.InvokePeasyMotion<CR>
+"Select text from current caret position to desired jump label (fwd and reverse directions supported)
+nnoremap <Space><Space>s gS:vsc Tools.InvokePeasyMotionTextSelect<CR>
+"Jump to word beginning in current line
+nnoremap <Space><Space>l gS:vsc Tools.InvokePeasyMotionLineJumpToWordBegining<CR>
+"Jump to word ending in current line
+nnoremap <Space><Space>e gS:vsc Tools.InvokePeasyMotionLineJumpToWordEnding<CR>
+"Jump to any open document tab
+nnoremap <Space><Space>t gS:vsc Tools.InvokePeasyMotionJumpToDocumentTab<CR>
+"Jump to line beginning:
+nnoremap <Space><Space>j gS:vsc Tools.InvokePeasyMotionJumpToLineBegining<CR>
+nnoremap <Space><Space>k gS:vsc Tools.InvokePeasyMotionJumpToLineBegining<CR>
+" gcc v*gc 注释 
+nnoremap gcc :vsc Edit.ToggleComment<CR>
+vnoremap gc :vsc Edit.ToggleComment<CR><Esc><Esc>
+" gh gl 向后向前导航
+nnoremap gh :vsc View.NavigateBackward<CR>
+nnoremap gl :vsc View.NavigateForward<CR>
+" vim 杂项
+nnoremap <c-n> :nohl<CR>
+set backspace=indent,eol,start	"退格键设置"  
+set clipboard=unnamed	"默认的剪切寄存器"  
+set ignorecase	"忽略大小写"  
+set hlsearch
+set number relativenumber
+" vim-surround 模仿 https://github.com/VsVim/VsVim/issues/1474#issuecomment-417782010
+" Surround simulating bindings
+nnoremap s) ciw(<C-r>")<Esc>
+nnoremap s( ciw( <C-r>" )<Esc>
+nnoremap s] ciw[<C-r>"]<Esc>
+nnoremap s[ ciw[ <C-r>" ]<Esc>
+nnoremap s} ciw{<C-r>"}<Esc>
+nnoremap s{ ciw{ <C-r>" }<Esc>
+nnoremap s> ciw<lt><C-r>"><Esc>
+nnoremap s" ciw"<C-r>""<Esc>
+nnoremap s' ciw'<C-r>"'<Esc>
+nnoremap sW) ciW(<C-r>")<Esc>
+nnoremap sW( ciW( <C-r>" )<Esc>
+nnoremap sW] ciW[<C-r>"]<Esc>
+nnoremap sW[ ciW[ <C-r>" ]<Esc>
+nnoremap sW} ciW{<C-r>"}<Esc>
+nnoremap sW{ ciW{ <C-r>" }<Esc>
+nnoremap sW> ciW<lt><C-r>"><Esc>
+nnoremap sW" ciW"<C-r>""<Esc>
+nnoremap sW' ciW'<C-r>"'<Esc>
+" Surround delete bindings
+nnoremap ds) vi(dvhp
+nnoremap ds( vi(dvhp
+nnoremap ds] vi[dvhp
+nnoremap ds[ vi[dvhp
+nnoremap ds} vi{dvhp
+nnoremap ds{ vi{dvhp
+nnoremap ds> vi<dvhp
+nnoremap ds" vi"dvhp
+nnoremap ds' vi'dvhp
+" Surround change bindings
+nnoremap cs"' vi"oh<Esc>msvi"l<Esc>cl'<Esc>`scl'<Esc>
+nnoremap cs'" vi'oh<Esc>msvi'l<Esc>cl"<Esc>`scl"<Esc>
+nnoremap cs(< vi(oh<Esc>msvi)l<Esc>cl><Esc>`scl<lt><Esc>
+nnoremap cs<( vi<lt>oh<Esc>msvi>l<Esc>cl)<Esc>`scl(<Esc>
+" Surround visual selected text
+vnoremap S" c"<C-r>""<Esc>
+vnoremap S' c"<C-r>"'<Esc>
+vnoremap S) c(<C-r>")<Esc>
+vnoremap S( c( <C-r>" )<Esc>
+vnoremap S] c[<C-r>"]<Esc>
+vnoremap S[ c[ <C-r>" ]<Esc>
+vnoremap S} c{<C-r>"}<Esc>
+vnoremap S{ c{ <C-r>" }<Esc>
+vnoremap S> c<lt><C-r>"><Esc>
+vnoremap S* c/*<C-r>"*/<Esc>
+"vnoremap St c<lt>div><CR><C-r>"<Esc>
+" Surround in div tag and edit tag
+vnoremap St c<lt>div><CR><C-r>"<Esc>`<lt>lcw
+" grr gr 使用剪贴板替换
+nnoremap grr pkdd
+nnoremap grw Pldw
+nnoremap griw bPldw
+vnoremap gr p
+" 输入模式下的光标左右移动
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+inoremap <C-d> <DELETE>
